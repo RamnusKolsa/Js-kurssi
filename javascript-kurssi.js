@@ -105,7 +105,24 @@ switch (groceryItem) {
     break;
 }
 
-// 
+// Parameters and Arguments -tehtävä
+
+function sayThanks(name) {
+  console.log('Thank you for your purchase '+ name + '! We appreciate your business.');
+}
+
+sayThanks('Cole');
+
+// Default Parameters -tehtävä
+
+function greeting (name = 'stranger') {
+  console.log(`Hello, ${name}!`)
+}
+
+greeting('Nick') // Output: Hello, Nick!
+greeting() // Output: Hello, stranger!
+
+//  -tehtävä
 
 
 
