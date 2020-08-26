@@ -122,6 +122,25 @@ function greeting (name = 'stranger') {
 greeting('Nick') // Output: Hello, Nick!
 greeting() // Output: Hello, stranger!
 
+// Return -tehtävä
+
+function rectangleArea(width, height) {
+  if (width < 0 || height < 0) {
+    return 'You need positive integers to calculate area!';
+  }
+  return width * height;
+}
+
+// ----- jatkuu alla toisella return-tehtävällä
+
+function monitorCount(rows, columns) {
+  return rows * columns;
+}
+
+const numOfMonitors = monitorCount(5, 4);
+
+console.log(numOfMonitors);
+
 //  -tehtävä
 
 
