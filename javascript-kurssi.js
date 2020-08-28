@@ -311,20 +311,20 @@
 
 // More Array Methods
 
-const groceryList = ['orange juice', 'bananas', 'coffee beans', 'brown rice', 'pasta', 'coconut oil', 'plantains'];
+    const groceryList = ['orange juice', 'bananas', 'coffee beans', 'brown rice', 'pasta', 'coconut oil', 'plantains'];
 
-groceryList.shift();  // poistaa ensimmäisen iteemin listalta
-console.log(groceryList);
+    groceryList.shift();  // poistaa ensimmäisen iteemin listalta
+    console.log(groceryList);
 
-groceryList.unshift("popcorn"); // lisää listan alkuun iteemin
-console.log(groceryList);
+    groceryList.unshift("popcorn"); // lisää listan alkuun iteemin
+    console.log(groceryList);
 
-console.log(groceryList.slice(1, 4)); // valitsee listalta sarjan iteemejä indexin 1 ja 4 väliltä. i1 lasketaan mukaan, mutta i4 ei. Eli se valitsee listan iteemit 1,2,3.
+    console.log(groceryList.slice(1, 4)); // valitsee listalta sarjan iteemejä indexin 1 ja 4 väliltä. i1 lasketaan mukaan, mutta i4 ei. Eli se valitsee listan iteemit 1,2,3.
 
-console.log(groceryList);
+    console.log(groceryList);
 
-const pastaIndex = groceryList.indexOf("pasta");
-console.log(pastaIndex);
+    const pastaIndex = groceryList.indexOf("pasta");
+    console.log(pastaIndex);
 
 // Arrays and Functions
 
@@ -350,4 +350,139 @@ console.log(pastaIndex);
     const numberClusters = [[1, 2], [3, 4], [5, 6]]; // kolme listaelementtiä, joissa jokaisessa kaksi listaelementtiä.
     const target = numberClusters[2][1]; // Näin pääsee käsiksi elmeenttiin "6", joka sijaitsee i2-listan kohdassa i1.
 
+// --- 27.08. päättyy tähän. ---
+// --- 28.08. Alkaa tästä. ---
+
+// The For Loop
+
+    for (let counter = 0; counter < 4; counter++) {
+      console.log(counter);                         // Printtaa 0 1 2 3
+    }
+
+// Looping in Reverse
+
+    for (let counter = 3; counter >= 0; counter--){
+      console.log(counter);                 // Printtaa 3 2 1 0
+    }
+
+// Looping through Arrays
+
+    const vacationSpots = ['Bali', 'Paris', 'Tulum'];
+
+    // Write your code below
+    for (let i = 0; i < vacationSpots.length; i++) {
+      console.log("I would love to visit " + vacationSpots[i]);
+    }
+
+// Nested Loops
+
+    const myArray = [6, 19, 20];
+    const yourArray = [19, 81, 2];
+    for (let i = 0; i < myArray.length; i++) {
+      for (let j = 0; j < yourArray.length; j++) {
+        if (myArray[i] === yourArray[j]) {
+          console.log('Both loops have the number: ' + yourArray[j])
+        }
+      }
+    };
+
+    // ----
+
+    const bobsFollowers = ["Pena", "Ykä", "Stiku", "Peku"];
+    const tinasFollowers = ["Maikkis", "Peku", "Pena"];
+    const mutualFollowers = [];
+
+    for (let i = 0; i < bobsFollowers.length; i++) {
+      for (let j = 0; j < tinasFollowers.length; j++) {
+        if (bobsFollowers[i] === tinasFollowers[j]) {
+          mutualFollowers.push(tinasFollowers[j]);
+        }
+      }
+    }
+    console.log(mutualFollowers);   // tulostaa ["Pena", "Peku"]
+
+// The While Loop
+
+    const cards = ['diamond', 'spade', 'heart', 'club'];
+    let currentCard;
+    // Write your code below
+
+    while (currentCard != "spade") {
+      currentCard = cards[Math.floor(Math.random()*4)]; // antaa satunnaisen numeron väliltä 0-3.
+      console.log(currentCard);
+    }
+
+// Do...While Statements
+
+    let cupsOfSugarNeeded = 0;
+    let cupsAdded = 0;
+
+    do {
+      cupsAdded++;
+    } while (cupsAdded < cupsOfSugarNeeded);
+
+    console.log(cupsAdded); // printtaa 1, koska do...while suorittaa do:n alla olevan koodin ainakin kerran. Tässä tapauksessa kasvattaa cupsAddedia yhdellä.
+
+// The break Keyword
+
+    const rapperArray = ["Lil' Kim", "Jay-Z", "Notorious B.I.G.", "Tupac"];
+
+    for (let i = 0; i < rapperArray.length; i++) {
+      console.log(rapperArray[i]);
+      if (rapperArray[i] === "Notorious B.I.G.") {  // MUISTA === eikä =
+      break;
+      }
+    } 
+    console.log("And if you don't know, now you know.");
+
+// Functions as Data
+
+    const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
+      for(let i = 1; i <= 1000000; i++) {
+        if ( (2 + 2) != 4) {
+          console.log('Something has gone very wrong :( ');
+        }
+      }
+    }
+    const is2p2 = checkThatTwoPlusTwoEqualsFourAMillionTimes;
+    is2p2(); // lyhyempi nimi, helpompi lukea
+    
+    console.log(is2p2.name);  // jos unohdat alkuperäisen nimen
+
+// Functions as Parameters (ei jatkoon 1/5)
+
+    const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
+      for(let i = 1; i <= 1000000; i++) {
+        if ( (2 + 2) != 4) {
+          console.log('Something has gone very wrong :( ');
+        }
+      }
+    };
+
+    const addTwo = num => num + 2;
+
+    const timeFuncRuntime = funcParameter => {
+      let t1 = Date.now();
+      funcParameter();
+      let t2 = Date.now();
+      return t2 - t1;
+    };
+
+    // Write your code below
+    const time2p2 = timeFuncRuntime(checkThatTwoPlusTwoEqualsFourAMillionTimes);
+
+    const checkConsistentOutput = (func, val) => {
+      let firstTry = func(val);
+      let secondTry = func(val);
+      if (firstTry === secondTry) {
+        return firstTry;
+      } else {
+        return "This function returned inconsistent results";
+      }
+    }
+
+    checkConsistentOutput(addTwo, 2);
+
 //
+
+
